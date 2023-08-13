@@ -4,7 +4,7 @@ OPC_NAMESPACE = "http://opcfoundation.org/UA/"
 
 BASE_URL = "http://localhost:3000"
 
-DATABASE_FILE = "sqlite:///database.db"
+DATABASE_FILE = "database.db"
 
 from hal.interface import HAL
 from hal.opcua_machine import Hahnenschwanz2

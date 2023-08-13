@@ -1,6 +1,6 @@
 
 from abc import ABC, abstractmethod
-from ..models.cocktail import Cocktail
+from models.cocktail import Cocktail
 
 class Step(object):
     def __init__(self, position, amount):

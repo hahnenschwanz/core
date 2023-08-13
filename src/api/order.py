@@ -3,7 +3,7 @@ from flask import Blueprint, request, jsonify
 from models.order import Order
 from db import db
 import datetime
-from machine import machine, MixError
+from machine import machine, MachineError
 
 order_bp = Blueprint("order", __name__)
 
@@ -26,6 +26,6 @@ def create_order():
     cocktail = db.get_cocktail(cocktail_id)
     try:
         machine.mix(cocktail)
-    except MixError as e:
+    except MachineError as e:
         return str(e), 400
     return jsonify("Cocktail is being prepared", 202)

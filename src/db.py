@@ -1,16 +1,17 @@
 import sqlite3
 from models.cocktail import Cocktail
+from config import DATABASE_FILE
 
 class Database(object):
     _instance = None
-    def __new__(cls, *args, **kwargs):
-        if not cls._instance:
-            cls._instance = super(Database, cls).__new__(
-                                cls, *args, **kwargs)
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super(Database, cls).__new__(cls)
         return cls._instance
 
-    def __init__(self, db):
-        self.conn = sqlite3.connect(db)
+    def __init__(self):
+        self.conn = sqlite3.connect(DATABASE_FILE)
+
         self.cur = self.conn.cursor()
         self.cur.execute("CREATE TABLE IF NOT EXISTS cocktails (id INTEGER PRIMARY KEY, name text, imagefile text, ingredients integer)")
         self.cur.execute("CREATE TABLE IF NOT EXISTS ingredients (id INTEGER PRIMARY KEY, name text)")
@@ -79,4 +80,4 @@ class Database(object):
     
 
 
-db = Database("db.sqlite")
+db = Database()
