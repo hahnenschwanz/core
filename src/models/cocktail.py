@@ -8,12 +8,12 @@ class Cocktail(object):
         self.imageUrl = imageUrl
         self.tags = tags
         self.recipe = recipe
-    def __init__(self, id, name, imageUrl, tags: list[str], recipe: list([(Ingredient,float)])):
+    def __init__(self, id, name, imageUrl, tags: list[str], recipe: list[(Ingredient,float)]):
         self.id = id
         self.name = name
         self.imageUrl = imageUrl
-        self.tags = tags
-        self.recipe = recipe
+        self.tags: list[str] = tags
+        self.recipe: list[(Ingredient,float)] = recipe
     def __repr__(self):
         return f"Cocktail({self.name}, {self.imageUrl}, {self.tags}, {self.recipe})"
     def __str__(self):

@@ -21,34 +21,38 @@ class Database(object):
         self.cur.execute("CREATE TABLE IF NOT EXISTS users (id integer PRIMARY KEY, name text UNIQUE)")
         self.cur.execute("CREATE TABLE IF NOT EXISTS tags (id integer PRIMARY KEY, name text UNIQUE)")
         self.conn.commit()
-    def ingredient_create(self, name):
-        self.cur.execute("INSERT INTO ingredients VALUES (NULL,?)", (name,))
+    def ingredient_create(self, name, alcoholic, imagefile = None):
+        self.cur.execute("INSERT INTO ingredients VALUES (NULL,?,?,?)", (name, imagefile, alcoholic))
         self.conn.commit()
     
-    def ingredient_update(self, id, name):
-        self.cur.execute("UPDATE ingredients SET name = ? WHERE id = ?", (name, id))
-        self.conn.commit()
-    
-    def ingredient_entry_create(self, ingredient_id, cocktail_id, amount):
-        self.cur.execute("INSERT INTO ingredient_entries VALUES (NULL,?,?,?)", (ingredient_id, cocktail_id, amount))
+    def ingredient_update(self, id, name, alcoholic, imagefile = None):
+        self.cur.execute("UPDATE ingredients SET name = ?, imagefile = ?, alcoholic = ? WHERE id = ?", (name, imagefile, alcoholic, id))
         self.conn.commit()
 
-    def ingredient_entry_update(self, id, ingredient_id, cocktail_id, amount):
-        self.cur.execute("UPDATE ingredient_entries SET ingredient_id = ?, cocktail_id = ?, amount = ? WHERE id = ?", (ingredient_id, cocktail_id, amount, id))
-        self.conn.commit()
-    
-    def ingredient_entry_delete(self, id):
-        self.cur.execute("DELETE FROM ingredient_entries WHERE id = ?", (id,))
+    def ingredient_delete(self, id):
+        self.cur.execute("DELETE FROM ingredients WHERE id = ?", (id,))
+        self.cur.execute("DELETE FROM recipe_entries WHERE ingredient_id = ?", (id,))
         self.conn.commit()
 
     def cocktail_create(self, cocktail: Cocktail):
-        self.cur.execute("INSERT INTO cocktails VALUES (NULL,?,?,?)", (cocktail.name, cocktail.imageUrl, cocktail.ingredients))
+        cocktail_id = self.cur.execute("INSERT INTO cocktails VALUES (NULL,?,?)", ( cocktail.name, cocktail.imageUrl))
+        for tag in cocktail.tags:
+            self.cur.execute("INSERT INTO tags VALUES (NULL,?)", (tag,))
+        for ingredient, amount in cocktail.recipe:
+            self.cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (ingredient.id, cocktail_id, amount))
         self.conn.commit()
+        return cocktail_id
     
     def cocktail_update(self, cocktail: Cocktail):
         cocktail_id = self.cur.execute("UPDATE cocktails SET name = ?, imagefile = ?, ingredients = ? WHERE id = ?", (cocktail.name, cocktail.imageUrl, cocktail.ingredients, cocktail.id))
         self.conn.commit()
         return cocktail_id
+    
+    def cocktail_delete(self, cocktail_id):
+        self.cur.execute("DELETE FROM cocktails WHERE id = ?", (cocktail_id,))
+        self.cur.execute("DELETE FROM recipe_entries WHERE cocktail_id = ?", (cocktail_id,))
+        self.cur.execute("DELETE FROM tag_entries WHERE cocktail_id = ?", (cocktail_id,))
+        self.conn.commit()
     
     def get_cocktails(self) -> list[Cocktail]:
         cocktails = []
@@ -74,11 +78,21 @@ class Database(object):
 
     
     def get_cocktail(self, id) -> Cocktail:
-        self.cur.execute("SELECT * FROM cocktails WHERE id=?", (id,))
-        result = self.cur.fetchone()
-        if result is not None:
-            id, name, imageUrl, tags, ingredients = result
-            return Cocktail(name, imageUrl, tags, ingredients)
+        self.cur.execute("SELECT c.id, c.name, c.imagefile FROM cocktails c WHERE c.id = ?", (id,))        
+        row = self.cur.fetchone()
+        if row is not None:
+            self.cur.execute("SELECT t.name FROM tags t JOIN tag_entries te ON t.id = te.tag_id WHERE te.cocktail_id = ?", (row[0],))
+            tag_rows = self.cur.fetchall()
+            tags = []
+            for tag_row in tag_rows:
+                tags.append(tag_row[0])
+            self.cur.execute("SELECT i.id, i.name, i.imagefile, i.alcoholic, r.amount FROM ingredients i JOIN recipe_entries r ON i.id = r.ingredient_id WHERE r.cocktail_id = ?", (row[0],))
+            ingredient_rows = self.cur.fetchall()
+            ingredients = []
+            for ingredient_row in ingredient_rows:
+                ingredient = Ingredient(ingredient_row[0], ingredient_row[1], ingredient_row[2], ingredient_row[3])
+                ingredients.append((ingredient, ingredient_row[4]))
+            return Cocktail(row[0], row[1], row[2], tags, ingredients)
         else:
             return None
     

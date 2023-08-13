@@ -1,7 +1,10 @@
 from .interface import Planner, Step
 
 class Hahnenschwanz2Planner(Planner):
-    def plan(self, cocktail, machine_capabilities):
+    def __init__(self, machine_capabilities):
+        self._machine_capabilities = machine_capabilities
+
+    def plan(self, cocktail):
         """Plan the mixing sequence based on machine capabilities.
 
         Args:
@@ -11,7 +14,7 @@ class Hahnenschwanz2Planner(Planner):
             list: A list of steps representing the mixing sequence.
         """
         steps = []
-        for ingredient in cocktail.ingredients:
-            pos = machine_capabilities.ingredients[ingredient] 
-            steps.append(Step(pos, ingredient.amount))
+        for ingredient, amount in cocktail.recipe:
+            pos = self._machine_capabilities["dispenser"][ingredient.name] 
+            steps.append(Step(pos, amount))
         return steps

@@ -11,6 +11,7 @@ class State:
 class MachineError(Exception):
     pass    
 
+
 class Machine:
     _instance = None
     def __new__(cls):
@@ -24,19 +25,20 @@ class Machine:
         self.active_cup = None
         self.active_user = None
 
-    def mix(self, order: Order):
+    def mix(self, cocktailId: int):
         if self.state == State.RUNNING:
             raise MachineError("Machine is already running")
         self.state = State.RUNNING
-        self.active_order = order.id
-        steps = planner.plan(order.cocktail)
+        #self.active_order = order.id
+        steps = planner.plan(cocktailId)
         step_counter = 0
         for step in steps:
             if self.state == State.ABORT:
                 break
             step_counter += 1
-            hal.dispense(step.position, step.amount)
-            event_order_change(order.id,  step_counter / len(steps)) #problem bei doppelten zutaten?
+            hal.dispense(step.position, step.amount)            
+            event_order_change("0", step_counter / len(steps)) #problem bei doppelten zutaten?
+            #event_order_change(order.id, step_counter / len(steps)) #problem bei doppelten zutaten?
         hal.home()
         self.state = State.IDLE
         self.active_order = None

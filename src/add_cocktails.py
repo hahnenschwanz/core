@@ -28,17 +28,19 @@ sex_on_the_beach = Cocktail(
     ]
 )
 
+#Add Ingredients
 cur.execute("INSERT INTO ingredients VALUES (NULL,?,?,?)", ("Vodka", "vodka.txt", True))
 cur.execute("INSERT INTO ingredients VALUES (NULL,?,?,?)", ("Peach Schnapps", "peach_schnapps.txt", True))
 cur.execute("INSERT INTO ingredients VALUES (NULL,?,?,?)", ("Orange Juice", "orange_juice.txt", False))
 cur.execute("INSERT INTO ingredients VALUES (NULL,?,?,?)", ("Cranberry Juice", "cranberry_juice.txt", False))
 con.commit()
 
+#Add Tags
 cur.execute("INSERT INTO tags VALUES (NULL,?)", ("IBA",))
 cur.execute("INSERT INTO tags VALUES (NULL,?)", ("ContemporaryClassic",))
 con.commit()
 
-
+# Add the cocktail
 cur.execute("INSERT INTO cocktails VALUES (?,?,?)", (1, sex_on_the_beach.name, sex_on_the_beach.imageUrl))
 cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (1, 1))
 cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (2, 1))

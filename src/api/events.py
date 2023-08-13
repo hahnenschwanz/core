@@ -26,8 +26,8 @@ def event_cup_change(cup_id):
     #    cup_id = None
     return {"type": "CupChange", "body": {"cup": cup_id, "user": user_id}}
 
-def event_order_change(order: str, progress: float, notice: str = None):
-    event_body = {"order": order, "progress": None, "notice": "No active order"}
+def event_order_change(order_id: str, progress: float, notice: str = None):
+    event_body = {"order": order_id, "progress": progress, "notice": notice}
     return {"type": "OrderChange", "body": event_body}
 '''
 @ws.on("connect", namespace="/events")
