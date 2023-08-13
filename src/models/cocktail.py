@@ -20,11 +20,18 @@ class Cocktail(object):
         self.__repr__()
     def serialize(self):
         return {
-            "id": self.id,
+            "id": str(self.id),
             "name": self.name,
             "imageUrl": self.imageUrl,
             "tags": self.tags,
-            "ingredients": [(r[0].serialize(),r[1]) for r in self.recipe]
+            "alcoholic": True,
+            #"hidden": False,
+            "ingredients": [{
+                                "id": r[0].id,
+                                "name": r[0].name,
+                                "amount": r[1],
+                                "manual": False
+                            } for r in self.recipe]
         }
     
     
