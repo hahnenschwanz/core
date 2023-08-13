@@ -1,0 +1,4 @@
+venv
+src/web
+**__pycache__**
+web
