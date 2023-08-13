@@ -11,7 +11,6 @@ app = Flask(__name__,
             static_folder='web/static',
             template_folder='web/templates')
 app.config['SOCK_SERVER_OPTIONS'] = {'ping_interval': 25}
-sock = Sock(app)
 
 @app.route("/")
 def index():

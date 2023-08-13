@@ -1,0 +1,7 @@
+-- SQLite
+SELECT *
+                    FROM cocktails c
+                    LEFT JOIN tag_entries te ON c.id = te.cocktail_id
+                    LEFT JOIN tags t ON t.id = te.tag_id
+                    LEFT JOIN recipe_entries re ON c.id = re.cocktail_id
+                    LEFT JOIN ingredients i ON i.id = re.ingredient_id 

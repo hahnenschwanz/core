@@ -1,5 +1,6 @@
 import sqlite3
 from models.cocktail import Cocktail
+from models.ingredient import Ingredient
 from config import DATABASE_FILE
 
 class Database(object):
@@ -10,12 +11,15 @@ class Database(object):
         return cls._instance
 
     def __init__(self):
-        self.conn = sqlite3.connect(DATABASE_FILE)
+        self.conn = sqlite3.connect(DATABASE_FILE, check_same_thread=False)
 
         self.cur = self.conn.cursor()
-        self.cur.execute("CREATE TABLE IF NOT EXISTS cocktails (id INTEGER PRIMARY KEY, name text, imagefile text, ingredients integer)")
-        self.cur.execute("CREATE TABLE IF NOT EXISTS ingredients (id INTEGER PRIMARY KEY, name text)")
-        self.cur.execute("CREATE TABLE IF NOT EXISTS ingredient_entries (id INTEGER PRIMARY KEY, ingredient_id integer, cocktail_id integer, amount integer)")
+        self.cur.execute("CREATE TABLE IF NOT EXISTS cocktails (id integer PRIMARY KEY, name text UNIQUE, imagefile text)")
+        self.cur.execute("CREATE TABLE IF NOT EXISTS ingredients (id integer PRIMARY KEY, name text UNIQUE, imagefile text, alcoholic boolean)")
+        self.cur.execute("CREATE TABLE IF NOT EXISTS recipe_entries (id integer PRIMARY KEY, ingredient_id integer, cocktail_id integer, amount float, FOREIGN KEY(ingredient_id) REFERENCES ingredients(id), FOREIGN KEY(cocktail_id) REFERENCES cocktails(id))")
+        self.cur.execute("CREATE TABLE IF NOT EXISTS cups (id integer PRIMARY KEY, user_id integer, FOREIGN KEY(user_id) REFERENCES users(id))")
+        self.cur.execute("CREATE TABLE IF NOT EXISTS users (id integer PRIMARY KEY, name text UNIQUE)")
+        self.cur.execute("CREATE TABLE IF NOT EXISTS tags (id integer PRIMARY KEY, name text UNIQUE)")
         self.conn.commit()
     def ingredient_create(self, name):
         self.cur.execute("INSERT INTO ingredients VALUES (NULL,?)", (name,))
@@ -47,10 +51,24 @@ class Database(object):
         return cocktail_id
     
     def get_cocktails(self) -> list[Cocktail]:
-        self.cur.execute("SELECT * FROM cocktails")
-        result = self.cur.fetchall()
-        if result is not None:
-            return [Cocktail(name, imageUrl, tags, ingredients) for id, name, imageUrl, tags, ingredients in result]
+        cocktails = []
+        self.cur.execute("SELECT c.id, c.name, c.imagefile FROM cocktails c")        
+        cocktail_rows = self.cur.fetchall()
+        if cocktail_rows is not None:
+            for row in cocktail_rows:
+                self.cur.execute("SELECT t.name FROM tags t JOIN tag_entries te ON t.id = te.tag_id WHERE te.cocktail_id = ?", (row[0],))
+                tag_rows = self.cur.fetchall()
+                tags = []
+                for tag_row in tag_rows:
+                    tags.append(tag_row[0])
+                self.cur.execute("SELECT i.id, i.name, i.imagefile, i.alcoholic, r.amount FROM ingredients i JOIN recipe_entries r ON i.id = r.ingredient_id WHERE r.cocktail_id = ?", (row[0],))
+                ingredient_rows = self.cur.fetchall()
+                ingredients = []
+                for ingredient_row in ingredient_rows:
+                    ingredient = Ingredient(ingredient_row[0], ingredient_row[1], ingredient_row[2], ingredient_row[3])
+                    ingredients.append((ingredient, ingredient_row[4]))
+                cocktails.append(Cocktail(row[0], row[1], row[2], tags, ingredients))
+            return cocktails
         else:
             return None
 
