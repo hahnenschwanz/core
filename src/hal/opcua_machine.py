@@ -21,7 +21,11 @@ class Hahnenschwanz2(HAL):
 
     def initialize(self):
         client = Client(url=self._url)
-        client.connect()
+        try:
+            client.connect()
+        except Exception as e:
+            _logger.error("Could not connect to OPC UA server")
+            raise e
         #if not client.connect():
         #    raise Exception("Could not connect to OPC UA server")
         self._client = client

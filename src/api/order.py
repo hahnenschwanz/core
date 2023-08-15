@@ -23,9 +23,10 @@ def create_order():
     #order.timestamp = datetime.datetime.now()
     #
     #db.order_create(order)
-    cocktail = db.get_cocktail(cocktail_id)
+    #db.session.add(Order(data.get("userId"), cocktail_id))
+
     try:
-        machine.mix(cocktail)
+        machine.mix(cocktail_id)
     except MachineError as e:
         return str(e), 400
     return jsonify("Cocktail is being prepared", 202)

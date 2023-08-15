@@ -9,7 +9,11 @@ DATABASE_FILE = "database.db"
 from hal.interface import HAL
 from hal.opcua_machine import Hahnenschwanz2
 hal = Hahnenschwanz2()
-hal.initialize()
+try:
+    #hal.initialize()
+    pass
+except:
+    pass
 
 
 machine_capabilities = {
@@ -18,6 +22,15 @@ machine_capabilities = {
         "Peach Schnapps": 4,
         "Orange Juice": 12,
         "Cranberry Juice": 14,
+        "Grapefruit Juice": 16,
+        "Lemon Juice": 18,
+        "Lime": 20,
+        "Pineapple Juice": 22,
+        "Grenadine": 24,
+        "Simple Syrup": 26,
+        "Sugar": 28,
+        "White rum": 30,
+        "Mint": 30,
     }
 }
 from planner.interface import Planner
