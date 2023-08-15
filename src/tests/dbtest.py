@@ -1,6 +1,6 @@
 from flask import Flask, jsonify
 
-from db import db, Cocktail, Ingredient, CocktailIngredient
+from db import db, Cocktail, Ingredient, CocktailIngredient, Tag, CocktailTag
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///project.db"
@@ -28,9 +28,9 @@ def create_tables():
         sour = db.session.add(Tag(name="Sour"))
         db.session.commit()
 
-        db.session.add(CocktailIngredient(cocktail_id=mojito.id, ingredient_id=white_rum.id, amount="0.02"))
-        db.session.add(CocktailIngredient(cocktail_id=mojito.id, ingredient_id=lime.id, amount="0.02"))
-        db.session.add(CocktailIngredient(cocktail_id=mojito.id, ingredient_id=mint.id, amount="0.02"))
+        db.session.add(CocktailIngredient(cocktail_id=mojito.id, ingredient_id=white_rum.id, amount=0.02))
+        db.session.add(CocktailIngredient(cocktail_id=mojito.id, ingredient_id=lime.id, amount=0.02))
+        db.session.add(CocktailIngredient(cocktail_id=mojito.id, ingredient_id=mint.id, amount=0.02))
         db.session.add(CocktailIngredient(cocktail_id=old_fashioned.id, ingredient_id=bourbon.id, amount=0.02))
         db.session.add(CocktailIngredient(cocktail_id=old_fashioned.id, ingredient_id=bitters.id, amount=0.02))
         db.session.add(CocktailIngredient(cocktail_id=old_fashioned.id, ingredient_id=sugar.id, amount=0.02))
