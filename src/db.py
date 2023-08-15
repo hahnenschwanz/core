@@ -9,14 +9,11 @@ class Cocktail(db.Model):
     description = db.Column(db.String)
     imageUrl = db.Column(db.String)
     ingredients = db.relationship('CocktailIngredient', backref='cocktail', lazy=True)
-    orders = db.relationship('Order', backref='cocktail', lazy=False)
     tags = db.relationship('CocktailTag', backref='cocktail', lazy=False)
-
 
 class Tag(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, unique=True, nullable=False)
-    cocktails = db.relationship('CocktailTag', backref='tag', lazy=False)
 
 class CocktailTag(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -42,8 +39,6 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, unique=True, nullable=False)
     password = db.Column(db.String)
-    cup = db.relationship('Cup', backref='user', lazy=True)
-    orders = db.relationship('Order', backref='user', lazy=True)
 
 class Cup(db.Model):
     id = db.Column(db.Integer, primary_key=True)

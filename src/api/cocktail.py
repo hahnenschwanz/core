@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify
-from db import db, Cocktail, CocktailIngredient
+from db import db, Cocktail, CocktailIngredient, Ingredient, Tag
 
 cocktail_bp = Blueprint("cocktail", __name__)
 
@@ -23,7 +23,7 @@ def cocktail_list():
             "name": cocktail.name,
             "description": cocktail.description,
             "imageUrl": "https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg",
-            "tags": ["sweet", "sour", "bitter", "spicy", "fruity", "creamy", "strong", "weak"],
+            "tags": [cocktail_tag.tag.name for cocktail_tag in cocktail.tags],
             "ingredients": [ {
                 "id": cocktail_ingredient.ingredient.id,
                 "name": cocktail_ingredient.ingredient.name,
@@ -47,6 +47,7 @@ def cocktail_get(id):
         "name": cocktail.name,
         "description": cocktail.description,
         "imageUrl": cocktail.imageUrl,
+        "tags": [cocktail_tag.tag.name for cocktail_tag in cocktail.tags],
         "ingredients": [ {
             "id": cocktail_ingredient.ingredient.id,
             "name": cocktail_ingredient.ingredient.name,
