@@ -14,10 +14,24 @@ hal.initialize()
 
 machine_capabilities = {
     "dispenser": {
-        "Vodka": 1,
-        "Peach Schnapps": 4,
-        "Orange Juice": 12,
-        "Cranberry Juice": 14,
+        "Licor 43": 1,
+        "Tonic Water": 11,
+        "Tequila": 2,
+        "Cranberrysaft": 12,
+        "Batida de Coco": 3,
+        "Orangensaft": 13,
+        "Vodka": 4,
+        "Ananassaft": 14,
+        "Blue Curacao": 5,
+        "Gin": 6,
+        "Kirschsaft": 15,
+        "Pfirsichlik": 7,
+        "Maracuja": 16,
+        "Bacardi": 8,
+        "Bannanennektar": 17,
+        "Granadinensyrup": 9,
+        "Sahne": 18,
+        "Zitronensaft": 10,
     }
 }
 from planner.interface import Planner

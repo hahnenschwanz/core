@@ -9,8 +9,7 @@ order_bp = Blueprint("order", __name__)
 
 @order_bp.route("/api/order", methods=["POST"])
 def create_order():
-    data = request.get_json()
-    cocktail_id = data.get("CocktailId")
+    cocktail_id = request.get_json()
     #user_cup = db.get_user_cup(data.get("userId"))
     #
     #if user_cup is None:

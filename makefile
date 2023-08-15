@@ -1,6 +1,6 @@
 frontend:
 	@echo "Building frontend..."
-	cd frontend && yarn install && yarn build 
+	cd frontend && yarn install --ignore-engines && yarn build 
 	@rm -rf src/web/static
 	@mkdir -p src/web/static
 	@cp -r frontend/build/* src/web/static/
