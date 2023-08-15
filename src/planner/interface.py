@@ -1,6 +1,5 @@
 
 from abc import ABC, abstractmethod
-from models.cocktail import Cocktail
 
 class Step(object):
     def __init__(self, position, amount):
@@ -21,7 +20,7 @@ class Step(object):
 
 class Planner(ABC):
     @abstractmethod
-    def plan(self, cocktail: Cocktail, machine_capabilities):
+    def plan(self, cocktail, machine_capabilities):
         """Plan the mixing sequence based on machine capabilities.
 
         Args:

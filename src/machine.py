@@ -1,6 +1,5 @@
 from config import planner, hal
 from api.events import event_order_change
-from models.order import Order
 
 class State:
     IDLE = 0

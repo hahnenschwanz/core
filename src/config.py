@@ -8,7 +8,9 @@ DATABASE_FILE = "database.db"
 
 from hal.interface import HAL
 from hal.opcua_machine import Hahnenschwanz2
-hal = Hahnenschwanz2()
+from hal.mock import MockHal
+#hal = Hahnenschwanz2()
+hal = MockHal()
 try:
     hal.initialize()
 except:
