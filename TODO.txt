@@ -1,3 +1,14 @@
 alles zu async
 wo sollen die LEDs sein?
 datenhaltung
+
+## !BUGS!
+
+- bei fehler bleibt zubereitungsstatus stuck
+- /abort funktioniert nicht
+- kiosk mit /<pin> funktioniert nicht
+- UI bilder fehlen
+- Tag-Cutoff funktioniert nicht auf dem Tablet
+- Alkohol-Detection funktioniert nicht
+- Header verstecken
+- Hahnenschwanz Icon
