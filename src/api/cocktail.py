@@ -3,7 +3,7 @@ from db import db, Cocktail, CocktailIngredient, Ingredient, Tag
 
 cocktail_bp = Blueprint("cocktail", __name__)
 
-def normalize_amount(amount, unit)
+def normalize_amount(amount, unit):
     if unit == "cl":
         return amount * 10
     elif unit == "dl":

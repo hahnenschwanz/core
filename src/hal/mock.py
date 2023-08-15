@@ -1,4 +1,4 @@
-from .hal import HAL
+from hal.interface import HAL
 import logging
 _logger = logging.getLogger(__name__)
 
