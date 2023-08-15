@@ -19,19 +19,19 @@ cur.execute("CREATE TABLE IF NOT EXISTS tag_entries (id integer PRIMARY KEY, tag
 desire = Cocktail(
     id=1,
     name="Desire",
-    imageURL="",
+    imageUrl="",
     tags=["Frisch","Sauer"],
     recipe=[
         ("Gin", 0.04),
         ("Tonic Water", 0.13),
-        ("Pfirsichlikör", 0.02),
+        ("PfirsichlikÃ¶r", 0.02),
         ("Zitronensaft", 0.02)
     ]
 )
 kiss43 = Cocktail(
     id=2,
     name="43er Kiss",
-    imageURL="",
+    imageUrl="",
     tags=["Süß"],
     recipe=[
         ("Orangensaft", 0.10),
@@ -43,7 +43,7 @@ kiss43 = Cocktail(
 cream43 = Cocktail(
     id=3,
     name="Cream 43",
-    imageURL="",
+    imageUrl="",
     tags=["Süß","Sahne"],
     recipe=[
         ("Orangensaft", 0.07),
@@ -55,7 +55,7 @@ cream43 = Cocktail(
 blue_kolibri = Cocktail(
     id=4,
     name="Blue Kolibri",
-    imageURL="",
+    imageUrl="",
     tags=["Süß","Fruchtig"],
     recipe=[
         ("Cranberrysaft", 0.08),
@@ -68,7 +68,7 @@ blue_kolibri = Cocktail(
 batida_kiba = Cocktail(
     id=5,
     name="Batida de Kiba",
-    imageURL="",
+    imageUrl="",
     tags=["Süß"],
     recipe=[
         ("Bannanennektar", 0.09),
@@ -80,7 +80,7 @@ batida_kiba = Cocktail(
 swimmingpool = Cocktail(
     id=6,
     name="Swimmingpool",
-    imageURL="",
+    imageUrl="",
     tags=["Classic","Stark","Süß","Sahne"],
     recipe=[
         ("Ananassaft", 0.08),
@@ -94,7 +94,7 @@ swimmingpool = Cocktail(
 sex_on_the_beach = Cocktail(
     id=7,
     name="Sex on the Beach",
-    imageURL="",
+    imageUrl="",
     tags=["Classic","Fruchtig"],
     recipe=[
         ("Cranberrysaft", 0.08),
@@ -106,7 +106,7 @@ sex_on_the_beach = Cocktail(
 long_beach = Cocktail(
     id=8,
     name="Long Beach",
-    imageURL="",
+    imageUrl="",
     tags=["Extra Stark"],
     recipe=[
         ("Orangensaft", 0.04),
@@ -121,7 +121,7 @@ long_beach = Cocktail(
 tequilla_sunrise = Cocktail(
     id=9,
     name="Tequilla Sunrise",
-    imageURL="",
+    imageUrl="",
     tags=["Classic","Fruchtig"],
     recipe=[
         ("Orangensaft", 0.14),
@@ -132,7 +132,7 @@ tequilla_sunrise = Cocktail(
 pina_colada = Cocktail(
     id=10,
     name="Pina Colada",
-    imageURL="",
+    imageUrl="",
     tags=["Classic","Süß","Sahne"],
     recipe=[
         ("Batida de Coco", 0.04),
@@ -144,7 +144,7 @@ pina_colada = Cocktail(
 alex = Cocktail(
     id=11,
     name="Alex",
-    imageURL="",
+    imageUrl="",
     tags=["Exlusiv","Fruchtig","Frisch"],
     recipe=[
         ("Cranberrysaft", 0.06),
@@ -157,7 +157,7 @@ alex = Cocktail(
 alexi = Cocktail(
     id=12,
     name="Alexi",
-    imageURL="",
+    imageUrl="",
     tags=["Exlusiv","Fruchtig","Frisch"],
     recipe=[
         ("Cranberrysaft", 0.08),
@@ -169,7 +169,7 @@ alexi = Cocktail(
 kiba = Cocktail(
     id=13,
     name="KiBa",
-    imageURL="",
+    imageUrl="",
     tags=["Süß"],
     recipe=[
         ("Bannanennektar", 0.12),
@@ -179,7 +179,7 @@ kiba = Cocktail(
 sweet_orange = Cocktail(
     id=14,
     name="Sweet Orange",
-    imageURL="",
+    imageUrl="",
     tags=["Süß","Sahne"],
     recipe=[
         ("Orangensaft", 0.08),
@@ -191,7 +191,7 @@ sweet_orange = Cocktail(
 beach_beauty = Cocktail(
     id=15,
     name="Beach Beauty",
-    imageURL="",
+    imageUrl="",
     tags=["Fruchtig"],
     recipe=[
         ("Tonic Water", 0.10),
@@ -202,7 +202,7 @@ beach_beauty = Cocktail(
 vodka_o = Cocktail(
     id=16,
     name="Vodka-O",
-    imageURL="",
+    imageUrl="",
     tags=["Longdrink"],
     recipe=[
         ("Orangensaft", 0.16),
@@ -212,7 +212,7 @@ vodka_o = Cocktail(
 licor43_o = Cocktail(
     id=17,
     name="43iger O-Saft",
-    imageURL="",
+    imageUrl="",
     tags=["Longdrink","Süß"],
     recipe=[
         ("Orangensaft", 0.15),
@@ -222,7 +222,7 @@ licor43_o = Cocktail(
 licor43_o_sahne = Cocktail(
     id=18,
     name="43iger O-Saft mit Sahne",
-    imageURL="",
+    imageUrl="",
     tags=["Longdrink","Sahne"],
     recipe=[
         ("Orangensaft", 0.13),
@@ -233,7 +233,7 @@ licor43_o_sahne = Cocktail(
 gin_tonic = Cocktail(
     id=19,
     name="Gin Tonic",
-    imageURL="",
+    imageUrl="",
     tags=["Longdrink"],
     recipe=[
         ("Tonic Water", 0.12),
@@ -249,7 +249,7 @@ cur.execute("INSERT INTO ingredients VALUES (NULL,?,?,?)", ("Batida de Coco", "b
 cur.execute("INSERT INTO ingredients VALUES (NULL,?,?,?)", ("Vodka", "vodka.txt", True))
 cur.execute("INSERT INTO ingredients VALUES (NULL,?,?,?)", ("Blue Curacao", "blue_curacao.txt", True))
 cur.execute("INSERT INTO ingredients VALUES (NULL,?,?,?)", ("Gin", "gin.txt", True))
-cur.execute("INSERT INTO ingredients VALUES (NULL,?,?,?)", ("Pfirsichlikör", ".pfirsichlikoer.txt", True))
+cur.execute("INSERT INTO ingredients VALUES (NULL,?,?,?)", ("Pfirsichlikär", ".pfirsichlikoer.txt", True))
 cur.execute("INSERT INTO ingredients VALUES (NULL,?,?,?)", ("Bacardi", "bacardi.txt", True))
 cur.execute("INSERT INTO ingredients VALUES (NULL,?,?,?)", ("Granadinensyrup", "granadinensyrup.txt", False))
 cur.execute("INSERT INTO ingredients VALUES (NULL,?,?,?)", ("Zitronensaft", "zitronensaft.txt", False))
@@ -281,12 +281,186 @@ cur.execute("INSERT INTO tags VALUES (NULL,?)", ("Frisch",))
 
 con.commit()
 
-# Add the cocktail
-cur.execute("INSERT INTO cocktails VALUES (?,?,?)", (1, sex_on_the_beach.name, sex_on_the_beach.imageUrl))
-cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (1, 1))
-cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (2, 1))
-cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (1, 1, 0.02))
-cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (2, 1, 0.02))
-cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (3, 1, 0.04))
-cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (4, 1, 0.04))
+# desire
+cur.execute("INSERT INTO cocktails VALUES (?,?,?)", (1, desire.name, desire.imageUrl))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (12, 1))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (9, 1))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (6, 1, 0.04))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (11, 1, 0.13))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (7, 1, 0.02))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (10, 1, 0.02))
+con.commit()
+
+# kiss43
+cur.execute("INSERT INTO cocktails VALUES (?,?,?)", (2, kiss43.name, kiss43.imageUrl))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (5, 2))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (13, 2, 0.10))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (1, 2, 0.04))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (10, 2, 0.02))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (15, 2, 0.04))
+con.commit()
+
+# cream43
+cur.execute("INSERT INTO cocktails VALUES (?,?,?)", (3, cream43.name, cream43.imageUrl))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (5, 3))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (7, 3))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (13, 3, 0.07))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (1, 3, 0.04))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (16, 3, 0.07))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (7, 3, 0.02))
+con.commit()
+
+# blue_kolibri
+cur.execute("INSERT INTO cocktails VALUES (?,?,?)", (4, blue_kolibri.name, blue_kolibri.imageUrl))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (5, 4))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (6, 4))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (12, 4, 0.08))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (14, 4, 0.06))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (2, 4, 0.02))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (4, 4, 0.04))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (5, 4, 0.02))
+con.commit()
+
+# batida_kiba
+cur.execute("INSERT INTO cocktails VALUES (?,?,?)", (5, batida_kiba.name, batida_kiba.imageUrl))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (5, 5)),
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (17, 5, 0.09))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (15, 5, 0.05))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (3, 5, 0.04))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (8, 5, 0.02))
+con.commit()
+
+# swimmingpool
+cur.execute("INSERT INTO cocktails VALUES (?,?,?)", (6, swimmingpool.name, swimmingpool.imageUrl))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (2, 6))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (10, 6))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (5, 6))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (7, 6))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (14, 6, 0.08))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (3, 6, 0.04))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (4, 6, 0.02))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (5, 6, 0.01))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (8, 6, 0.02))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (7, 6, 0.03))
+con.commit()
+
+# sex_on_the_beach
+cur.execute("INSERT INTO cocktails VALUES (?,?,?)", (7, sex_on_the_beach.name, sex_on_the_beach.imageUrl))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (2, 7))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (6, 7))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (12, 7, 0.08))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (13, 7, 0.06))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (4, 7, 0.04))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (7, 7, 0.02))
+con.commit()
+
+# long_beach
+cur.execute("INSERT INTO cocktails VALUES (?,?,?)", (8, long_beach.name, long_beach.imageUrl))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (11, 8)),
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (13, 8, 0.04))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (15, 8, 0.06))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (10, 8, 0.02))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (8, 8, 0.02))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (6, 8, 0.02))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (4, 8, 0.02))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (2, 8, 0.02))
+con.commit()
+
+# tequilla_sunrise
+cur.execute("INSERT INTO cocktails VALUES (?,?,?)", (9, tequilla_sunrise.name, tequilla_sunrise.imageUrl))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (2, 9))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (6, 9))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (13, 9, 0.14))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (9, 9, 0.02))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (2, 9, 0.04))
+con.commit()
+
+# pina_colada
+cur.execute("INSERT INTO cocktails VALUES (?,?,?)", (10, pina_colada.name, pina_colada.imageUrl))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (2, 10))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (5, 10))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (7, 10))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (3, 10, 0.04))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (14, 10, 0.10))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (8, 10, 0.02))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (7, 10, 0.02))
+con.commit()
+
+# alex
+cur.execute("INSERT INTO cocktails VALUES (?,?,?)", (11, alex.name, alex.imageUrl))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (3, 11))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (6, 11))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (12, 11))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (12, 11, 0.06))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (14, 11, 0.06))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (6, 11, 0.04))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (9, 11, 0.04))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (10, 11, 0.02))
+con.commit()
+
+# alexi
+cur.execute("INSERT INTO cocktails VALUES (?,?,?)", (12, alexi.name, alexi.imageUrl))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (3, 12))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (6, 12))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (12, 12))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (12, 12, 0.08))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (14, 12, 0.10))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (9, 12, 0.02))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (10, 12, 0.02))
+con.commit()
+
+# kiba
+cur.execute("INSERT INTO cocktails VALUES (?,?,?)", (13, kiba.name, kiba.imageUrl))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (5, 13)),
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (17, 13, 0.12))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (15, 13, 0.08))
+con.commit()
+
+# sweet_orange
+cur.execute("INSERT INTO cocktails VALUES (?,?,?)", (14, sweet_orange.name, sweet_orange.imageUrl))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (5, 14))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (7, 14))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (13, 14, 0.08))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (14, 14, 0.04))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (17, 14, 0.04))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (7, 14, 0.04))
+con.commit()
+
+# beach_beauty
+cur.execute("INSERT INTO cocktails VALUES (?,?,?)", (15, beach_beauty.name, beach_beauty.imageUrl))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (6, 15)),
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (11, 15, 0.10))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (13, 15, 0.08))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (9, 15, 0.02))
+con.commit()
+
+# vodka_o
+cur.execute("INSERT INTO cocktails VALUES (?,?,?)", (16, vodka_o.name, vodka_o.imageUrl))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (1, 16)),
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (13, 16, 0.16))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (4, 16, 0.04))
+con.commit()
+
+# licor43_o
+cur.execute("INSERT INTO cocktails VALUES (?,?,?)", (17, licor43_o.name, licor43_o.imageUrl))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (1, 17))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (5, 17))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (13, 17, 0.15))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (1, 17, 0.05))
+con.commit()
+
+# licor43_o_sahne
+cur.execute("INSERT INTO cocktails VALUES (?,?,?)", (18, licor43_o_sahne.name, licor43_o_sahne.imageUrl))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (1, 18))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (7, 18))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (13, 18, 0.13))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (1, 18, 0.04))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (7, 18, 0.03))
+con.commit()
+
+# gin_tonic
+cur.execute("INSERT INTO cocktails VALUES (?,?,?)", (19, gin_tonic.name, gin_tonic.imageUrl))
+cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (1, 19)),
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (11, 19, 0.12))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (6, 19, 0.04))
 con.commit()
