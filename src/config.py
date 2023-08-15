@@ -10,8 +10,7 @@ from hal.interface import HAL
 from hal.opcua_machine import Hahnenschwanz2
 hal = Hahnenschwanz2()
 try:
-    #hal.initialize()
-    pass
+    hal.initialize()
 except:
     pass
 
