@@ -33,7 +33,7 @@ class Machine:
         steps = planner.plan(cocktailId)
         step_counter = 0
         for step in steps:
-            if self.state == State.ABORT:
+            if self.state == State.IDLE:
                 break
             step_counter += 1
             hal.dispense(step.position, step.amount)            

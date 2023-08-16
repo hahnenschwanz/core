@@ -4,6 +4,8 @@ from flask_sock import Sock
 from api.cocktail import cocktail_bp
 from api.user import user_bp
 from api.order import order_bp
+from api.order import abort_bp
+from api.admin import admin
 from api.events import sock
 
 app = Flask(__name__,
@@ -20,6 +22,8 @@ app.config.from_pyfile("config.py")
 app.register_blueprint(cocktail_bp)
 app.register_blueprint(user_bp)
 app.register_blueprint(order_bp)
+app.register_blueprint(abort_bp)
+app.register_blueprint(admin)
 
 sock.init_app(app)
 
