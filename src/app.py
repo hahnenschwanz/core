@@ -15,7 +15,8 @@ app = Flask(__name__,
 app.config['SOCK_SERVER_OPTIONS'] = {'ping_interval': 25}
 
 @app.route("/")
-def index():
+@app.route("/<pin>")
+def index(pin = None):
     return app.send_static_file("index.html")
 
 app.config.from_pyfile("config.py")
