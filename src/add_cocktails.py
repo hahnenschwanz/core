@@ -19,7 +19,7 @@ cur.execute("CREATE TABLE IF NOT EXISTS tag_entries (id integer PRIMARY KEY, tag
 desire = Cocktail(
     id=1,
     name="Desire",
-    imageUrl="",
+    imageUrl="/images/desire.jpg",
     tags=["Frisch","Sauer"],
     recipe=[
         ("Gin", 0.04),
@@ -31,7 +31,7 @@ desire = Cocktail(
 kiss43 = Cocktail(
     id=2,
     name="43er Kiss",
-    imageUrl="",
+    imageUrl="/images/43er-kiss.jpg",
     tags=["Süß"],
     recipe=[
         ("Licor 43", 0.04),
@@ -43,7 +43,7 @@ kiss43 = Cocktail(
 cream43 = Cocktail(
     id=3,
     name="Cream 43",
-    imageUrl="",
+    imageUrl="/images/43er-cream.jpg",
     tags=["Süß","Sahne"],
     recipe=[
         ("Licor 43", 0.04),
@@ -55,7 +55,7 @@ cream43 = Cocktail(
 blue_kolibri = Cocktail(
     id=4,
     name="Blue Kolibri",
-    imageUrl="",
+    imageUrl="/images/blue-kolibri.jpg",
     tags=["Süß","Fruchtig"],
     recipe=[
         ("Cranberrysaft", 0.08),
@@ -68,7 +68,7 @@ blue_kolibri = Cocktail(
 batida_kiba = Cocktail(
     id=5,
     name="Batida de Kiba",
-    imageUrl="",
+    imageUrl="/images/kiba.jpg",
     tags=["Süß"],
     recipe=[
         ("Bannanennektar", 0.09),
@@ -80,7 +80,7 @@ batida_kiba = Cocktail(
 swimmingpool = Cocktail(
     id=6,
     name="Swimmingpool",
-    imageUrl="",
+    imageUrl="/images/swimming-pool.jpg",
     tags=["Classic","Stark","Süß","Sahne"],
     recipe=[
         ("Ananassaft", 0.08),
@@ -94,7 +94,7 @@ swimmingpool = Cocktail(
 sex_on_the_beach = Cocktail(
     id=7,
     name="Sex on the Beach",
-    imageUrl="",
+    imageUrl="/images/sex-on-the-beach.jpg",
     tags=["Classic","Fruchtig"],
     recipe=[
         ("Cranberrysaft", 0.08),
@@ -106,7 +106,7 @@ sex_on_the_beach = Cocktail(
 long_beach = Cocktail(
     id=8,
     name="Long Beach",
-    imageUrl="",
+    imageUrl="/images/long-beach.jpg",
     tags=["Extra Stark"],
     recipe=[
         ("Orangensaft", 0.04),
@@ -120,8 +120,8 @@ long_beach = Cocktail(
 )
 tequilla_sunrise = Cocktail(
     id=9,
-    name="Tequilla Sunrise",
-    imageUrl="",
+    name="Tequila Sunrise",
+    imageUrl="/images/tequila-sunrise.jpg",
     tags=["Classic","Fruchtig"],
     recipe=[
         ("Orangensaft", 0.14),
@@ -132,7 +132,7 @@ tequilla_sunrise = Cocktail(
 pina_colada = Cocktail(
     id=10,
     name="Pina Colada",
-    imageUrl="",
+    imageUrl="/images/pina-colada.jpg",
     tags=["Classic","Süß","Sahne"],
     recipe=[
         ("Batida de Coco", 0.04),
@@ -144,7 +144,7 @@ pina_colada = Cocktail(
 alex = Cocktail(
     id=11,
     name="Alex",
-    imageUrl="",
+    imageUrl="/images/alex.jpg",
     tags=["Exlusiv","Fruchtig","Frisch"],
     recipe=[
         ("Cranberrysaft", 0.06),
@@ -157,7 +157,7 @@ alex = Cocktail(
 alexi = Cocktail(
     id=12,
     name="Alexi",
-    imageUrl="",
+    imageUrl="/images/alex.jpg",
     tags=["Exlusiv","Fruchtig","Frisch"],
     recipe=[
         ("Cranberrysaft", 0.08),
@@ -169,7 +169,7 @@ alexi = Cocktail(
 kiba = Cocktail(
     id=13,
     name="KiBa",
-    imageUrl="",
+    imageUrl="/images/kiba.jpg",
     tags=["Süß"],
     recipe=[
         ("Bannanennektar", 0.12),
@@ -179,7 +179,7 @@ kiba = Cocktail(
 sweet_orange = Cocktail(
     id=14,
     name="Sweet Orange",
-    imageUrl="",
+    imageUrl="/images/sweet-orange.jpg",
     tags=["Süß","Sahne"],
     recipe=[
         ("Orangensaft", 0.08),
@@ -191,7 +191,7 @@ sweet_orange = Cocktail(
 beach_beauty = Cocktail(
     id=15,
     name="Beach Beauty",
-    imageUrl="",
+    imageUrl="/images/beach-beauty.jpg",
     tags=["Fruchtig"],
     recipe=[
         ("Tonic Water", 0.10),
@@ -202,7 +202,7 @@ beach_beauty = Cocktail(
 vodka_o = Cocktail(
     id=16,
     name="Vodka-O",
-    imageUrl="",
+    imageUrl="/images/vodka-o.jpg",
     tags=["Longdrink"],
     recipe=[
         ("Orangensaft", 0.16),
@@ -212,7 +212,7 @@ vodka_o = Cocktail(
 licor43_o = Cocktail(
     id=17,
     name="43iger O-Saft",
-    imageUrl="",
+    imageUrl="/images/43er-o-saft.jpg",
     tags=["Longdrink","Süß"],
     recipe=[
         ("Orangensaft", 0.15),
@@ -222,7 +222,7 @@ licor43_o = Cocktail(
 licor43_o_sahne = Cocktail(
     id=18,
     name="43iger O-Saft mit Sahne",
-    imageUrl="",
+    imageUrl="/images/43er-o-saft-sahne.jpg",
     tags=["Longdrink","Sahne"],
     recipe=[
         ("Orangensaft", 0.13),
@@ -233,7 +233,7 @@ licor43_o_sahne = Cocktail(
 gin_tonic = Cocktail(
     id=19,
     name="Gin Tonic",
-    imageUrl="",
+    imageUrl="/images/gin-tonic.jpg",
     tags=["Longdrink"],
     recipe=[
         ("Tonic Water", 0.12),
