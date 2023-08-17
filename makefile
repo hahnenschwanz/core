@@ -11,6 +11,13 @@ backend:
 	pip install -r requirements.txt
 	@echo "Done building backend"
 
+database:
+	@echo "Removing old database..."
+	@rm -f database.db
+	@echo "Creating new database..."
+	@python3 src/add_cocktails.py
+	@echo "Done updating database"
+
 run:
 	@echo "Running backend..."
 	python3 src/app.py
