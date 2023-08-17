@@ -25,9 +25,9 @@ def create_order():
     cocktail = db.get_cocktail(cocktail_id)
     try:
         machine.mix(cocktail)
-    except MachineError as e:
-        return str(e), 400
-    return jsonify("Cocktail is being prepared", 202)
+        return jsonify("Cocktail is being prepared", 202)
+    except MachineError as _:
+        return jsonify("An Cocktail is already being prepared", 409)
 
 
 abort_bp = Blueprint("abort", __name__)
@@ -36,6 +36,6 @@ abort_bp = Blueprint("abort", __name__)
 def abort_order():
     try:
         machine.abort()
-    except MachineError as e:
-        return str(e), 400
-    return jsonify("No Cocktail is being prepared", 409)
+        return jsonify("Order aborted", 200)
+    except MachineError as _:
+        return jsonify("No Cocktail is being prepared", 409)

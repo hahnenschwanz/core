@@ -1,6 +1,7 @@
 from config import planner, hal
 from api.events import event_order_change
 from models.order import Order
+from models.cocktail import Cocktail
 
 class State:
     IDLE = 0
@@ -25,23 +26,25 @@ class Machine:
         self.active_cup = None
         self.active_user = None
 
-    def mix(self, cocktailId: int):
-        if self.state == State.RUNNING:
-            raise MachineError("Machine is already running")
+    def mix(self, cocktail: Cocktail):
+        if self.state != State.IDLE:
+            raise MachineError("Machine is not idle")
         self.state = State.RUNNING
+        event_order_change(cocktail.id, 0)
         #self.active_order = order.id
-        steps = planner.plan(cocktailId)
+        steps = planner.plan(cocktail)
         step_counter = 0
         for step in steps:
-            if self.state == State.IDLE:
+            if self.state != State.RUNNING:
                 break
             step_counter += 1
-            hal.dispense(step.position, step.amount)            
-            event_order_change("0", step_counter / len(steps)) #problem bei doppelten zutaten?
-            #event_order_change(order.id, step_counter / len(steps)) #problem bei doppelten zutaten?
+            event_order_change(cocktail.id, step_counter / len(steps) * 100)
+            hal.dispense(step.position, step.amount)
         hal.home()
-        self.state = State.IDLE
+        if self.state != State.ERROR:
+            self.state = State.IDLE
         self.active_order = None
+        event_order_change(None, None)
     
     def abort(self):
         if self.state == State.IDLE:
@@ -50,6 +53,7 @@ class Machine:
         hal.home()
         self.state = State.IDLE
         self.active_order = None
+        event_order_change(None, None)
 
     def stop(self):
         if self.state == State.IDLE:
