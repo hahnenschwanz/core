@@ -24,7 +24,7 @@ class Cocktail(object):
             "name": self.name,
             "imageUrl": self.imageUrl,
             "tags": self.tags,
-            "alcoholic": True,
+            "alcoholic": any(ingredient.alcoholic for (ingredient, amount) in self.recipe),
             #"hidden": False,
             "ingredients": [{
                                 "id": r[0].id,
