@@ -28,3 +28,14 @@ def create_order():
     except MachineError as e:
         return str(e), 400
     return jsonify("Cocktail is being prepared", 202)
+
+
+abort_bp = Blueprint("abort", __name__)
+
+@abort_bp.route("/api/abort", methods=["POST"])
+def abort_order():
+    try:
+        machine.abort()
+    except MachineError as e:
+        return str(e), 400
+    return jsonify("No Cocktail is being prepared", 409)

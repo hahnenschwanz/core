@@ -25,7 +25,7 @@ machine_capabilities = {
         "Blue Curacao": 5,
         "Gin": 6,
         "Kirschsaft": 15,
-        "Pfirsichlik": 7,
+        "Pfirsichlikör": 7,
         "Maracuja": 16,
         "Bacardi": 8,
         "Bannanennektar": 17,

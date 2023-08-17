@@ -4,6 +4,8 @@ from flask_sock import Sock
 from api.cocktail import cocktail_bp
 from api.user import user_bp
 from api.order import order_bp
+from api.order import abort_bp
+from api.admin import admin
 from api.events import sock
 
 app = Flask(__name__,
@@ -13,13 +15,16 @@ app = Flask(__name__,
 app.config['SOCK_SERVER_OPTIONS'] = {'ping_interval': 25}
 
 @app.route("/")
-def index():
+@app.route("/<pin>")
+def index(pin = None):
     return app.send_static_file("index.html")
 
 app.config.from_pyfile("config.py")
 app.register_blueprint(cocktail_bp)
 app.register_blueprint(user_bp)
 app.register_blueprint(order_bp)
+app.register_blueprint(abort_bp)
+app.register_blueprint(admin)
 
 sock.init_app(app)
 
