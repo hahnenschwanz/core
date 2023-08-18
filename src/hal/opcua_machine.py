@@ -16,7 +16,7 @@ class Hahnenschwanz2(HAL):
     """Hardware Abstraction Layer for the Hahnenschwanz2 machine."""
     _client: Client = None
  #   cup_reader: serial.Serial = None
-    _url = "opc.tcp://192.168.5.99:4840/"
+    _url = "opc.tcp://192.168.5.221:4840/"
     _prefix = "ns=4;s=|var|c300.Application.Com"
 
     def initialize(self):
@@ -40,12 +40,13 @@ class Hahnenschwanz2(HAL):
         """
         self._ingredient_node.write_value(ua.Variant(json.dumps({"position": position , "amount": amount }), ua.VariantType.String))
         start_time = time()
-        while start_time + 30 > time():
-            status = self._status_node.read_value()
-            ingredient = self._ingredient_node.read_value()
-            if  status == 101 or status == 100 and ingredient == "done":
-                return
-            sleep(0.1)
+        #while start_time + 90 > time():
+        while True:
+          status = self._status_node.read_value()
+          ingredient = self._ingredient_node.read_value()
+          if  status == 101 or status == 100 and ingredient == "done":
+            return
+          sleep(0.1)
         raise Exception("Timeout while waiting for machine to finish dispensing ingredient")
 
 
@@ -53,7 +54,8 @@ class Hahnenschwanz2(HAL):
         """Move the machine to the extraction position."""
         self._ingredient_node.write_value(ua.Variant(json.dumps({"position": 0, "amount": 0 }), ua.VariantType.String))
         start_time = time()
-        while start_time + 30 > time():
+        #while start_time + 30 > time():
+        while True:
             status = self._status_node.read_value()
             ingredient = self._ingredient_node.read_value()
             if  status == 101 or status == 100 and ingredient == "done":
