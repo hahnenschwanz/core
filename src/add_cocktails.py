@@ -150,7 +150,7 @@ alex = Cocktail(
         ("Cranberrysaft", 0.06),
         ("Ananassaft", 0.06),
         ("Gin", 0.04),
-        ("Granadinensyrup", 0.04),
+        ("Granadinensyrup", 0.02),
         ("Zitronensaft", 0.02)
     ]
 )
@@ -339,7 +339,7 @@ cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (7, 6))
 
 cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (3, 6, 0.04))
 cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (4, 6, 0.02))
-cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (5, 6, 0.01))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (5, 6, 0.02))
 cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (18, 6, 0.03))
 cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (8, 6, 0.02))
 cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (14, 6, 0.08))
@@ -397,7 +397,7 @@ cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (12, 11, 0.06))
 cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (14, 11, 0.06))
 cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (6, 11, 0.04))
 cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (10, 11, 0.02))
-cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (9, 11, 0.04))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (9, 11, 0.02))
 con.commit()
 
 # alexi
