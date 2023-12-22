@@ -24,7 +24,7 @@ desire = Cocktail(
     recipe=[
         ("Gin", 0.04),
         ("Tonic Water", 0.13),
-        ("Pfirsichlikör", 0.02),
+        ("Granadinensyrup", 0.02),
         ("Zitronensaft", 0.02)
     ]
 )
@@ -100,7 +100,7 @@ sex_on_the_beach = Cocktail(
         ("Cranberrysaft", 0.08),
         ("Orangensaft", 0.06),
         ("Vodka", 0.04),
-        ("Pfirsichlikör", 0.02)
+        ("Granadinensyrup", 0.02)
     ]
 )
 long_beach = Cocktail(
@@ -287,7 +287,7 @@ cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (12, 1))
 cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (9, 1))
 cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (6, 1, 0.04))
 cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (11, 1, 0.13))
-cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (7, 1, 0.02))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (9, 1, 0.02))
 cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (10, 1, 0.02))
 con.commit()
 
@@ -350,7 +350,7 @@ cur.execute("INSERT INTO cocktails VALUES (?,?,?)", (7, sex_on_the_beach.name, s
 cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (2, 7))
 cur.execute("INSERT INTO tag_entries VALUES (NULL,?,?)", (6, 7))
 cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (4, 7, 0.04))
-cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (7, 7, 0.02))
+cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (9, 7, 0.02))
 cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (13, 7, 0.06))
 cur.execute("INSERT INTO recipe_entries VALUES (NULL,?,?,?)", (12, 7, 0.08))
 
